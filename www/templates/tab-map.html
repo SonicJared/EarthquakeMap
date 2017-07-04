@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<ion-view view-title="Map">
+	<html>
+	<head>
+	</head>
+
+	<ion-content>
+		 
+		<ng-map center="50, -187.3" zoom="3" ng-init="map.fill()">
+			<custom-marker zoom="3" ng-repeat="position in positions" position="{{position.pos}}">
+				<div ng-if="position.mag > 4.5">
+					<img ng-show="{{magSlide.value}} < {{position.mag}} && {{dateSlide.value}} > {{position.when.getDate()}}" src="https://maxcdn.icons8.com/Share/icon/Military//explosion1600.png" height="{{position.size}}">
+				</div>
+				<div ng-if="position.mag < 4.6">
+					<img ng-show="{{magSlide.value}} < {{position.mag}} && {{dateSlide.value}} > {{position.when.getDate()}}" src="img/earthquake.png" height="{{position.size}}">
+				</div>
+			</custom-marker>
+		</ng-map>
+
+
+		<ion-toggle ng-checked="magFilter" ng-model="magFilter" ng-click="updateFilters('mag')">
+				<ion-label>Filter by Magnitude</ion-label>
+		</ion-toggle>
+		<div ng-if="magFilter == false">
+		</div><!--  -->
+		<div ng-hide="magFilter == false">
+			<div class="range" id="red">
+		        <img src="img/earthquake.png" height="15"></img>
+		        <input type="range" dualKnobs="true" min="{{magSlide.min}}" max="{{magSlide.max}}" step=".1" name="magnitude" ng-model="magSlide.value" style="-webkit-slider-thumb:before {background: green !important;}">
+		        <img src="https://maxcdn.icons8.com/Share/icon/Military//explosion1600.png" height="30">
+		    </div>
+		    Showing earthquakes above magnitude {{magSlide.value}}
+		</div>
+
+	    <ion-toggle ng-checked="dateFilter" ng-model="dateFilter" ng-click="updateFilters('date')">
+				<ion-label>Filter by Date</ion-label>
+		</ion-toggle>
+		<div ng-hide="dateFilter == false">
+		    <div class="range" id="red">
+		        Old
+		        <input type="range" name="Time" ng-model="dateSlide.value" min="{{dateSlide.min}}" max="{{dateSlide.max}}" step="1" style="-webkit-slider-thumb:before {background: green !important;}">
+		        New
+		    </div>
+		    Showing earthquakes before September {{dateSlide.value}}, 2012
+		</div>
+		
+	</ion-content>
+	</html>
+</ion-view>
