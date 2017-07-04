@@ -4,10 +4,12 @@ You can filter the data by magnitude and date.  The icon size is determined by m
 
 To run the app download the repo and type the following(line two is optional if you already have ionic installed):
 
+```
 $cd EarthquakeMap
 $npm install -g cordova ionic
 $ionic serve
 
+```
 
 
 Jared Penner
