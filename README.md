@@ -10,7 +10,7 @@ $npm install -g cordova ionic
 $ionic serve
 ```
 
-It looks better when inspected. (Right click -> inspect)
+It looks better when inspected. (Right click -> Inspect -> Refresh)
 
 
 Jared Penner
