@@ -8,8 +8,9 @@ To run the app download the repo and type the following(line two is optional if 
 $cd EarthquakeMap
 $npm install -g cordova ionic
 $ionic serve
-
 ```
+
+It looks better when inspected. (Right click -> Inspect -> Refresh)
 
 
 Jared Penner
