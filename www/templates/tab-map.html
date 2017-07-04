@@ -8,10 +8,10 @@
 		 
 		<ng-map center="50, -187.3" zoom="3" ng-init="map.fill()">
 			<custom-marker zoom="3" ng-repeat="position in positions" position="{{position.pos}}">
-				<div ng-show="position.mag > 4.5">
+				<div ng-if="position.mag > 4.5">
 					<img ng-show="{{magSlide.value}} < {{position.mag}} && {{dateSlide.value}} > {{position.when.getDate()}}" src="https://maxcdn.icons8.com/Share/icon/Military//explosion1600.png" height="{{position.size}}">
 				</div>
-				<div ng-show="position.mag < 4.6">
+				<div ng-if="position.mag < 4.6">
 					<img ng-show="{{magSlide.value}} < {{position.mag}} && {{dateSlide.value}} > {{position.when.getDate()}}" src="img/earthquake.png" height="{{position.size}}">
 				</div>
 			</custom-marker>
